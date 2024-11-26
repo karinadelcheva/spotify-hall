@@ -58,14 +58,11 @@ const Scene = () => {
 
   const handleMouseMove = useCallback(
     (event) => {
-      // Check if the screen is mobile-sized
       if (window.innerWidth < 768 || monitorIndex) {
-        return; // Do nothing on mobile or if a monitor is selected
+        return;
       }
-
       const x = (event.clientX / window.innerWidth) * 2 - 1;
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
-
       if (
         Math.abs(x - prevX.current) > 0.01 ||
         Math.abs(y - prevY.current) > 0.01
