@@ -58,23 +58,26 @@ const Scene = () => {
 
   const handleMouseMove = useCallback(
     (event) => {
-      if (!monitorIndex) {
-        const x = (event.clientX / window.innerWidth) * 2 - 1;
-        const y = -(event.clientY / window.innerHeight) * 2 + 1;
+      // Check if the screen is mobile-sized
+      if (window.innerWidth < 768 || monitorIndex) {
+        return; // Do nothing on mobile or if a monitor is selected
+      }
 
-        if (
-          Math.abs(x - prevX.current) > 0.01 ||
-          Math.abs(y - prevY.current) > 0.01
-        ) {
-          prevX.current = x;
-          prevY.current = y;
-          gsap.to(controlsRef.current.target, {
-            x: x * 0.3,
-            y: y * 0.3,
-            ease: "power2.out",
-            duration: 0.5,
-          });
-        }
+      const x = (event.clientX / window.innerWidth) * 2 - 1;
+      const y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      if (
+        Math.abs(x - prevX.current) > 0.01 ||
+        Math.abs(y - prevY.current) > 0.01
+      ) {
+        prevX.current = x;
+        prevY.current = y;
+        gsap.to(controlsRef.current.target, {
+          x: x * 0.3,
+          y: y * 0.3,
+          ease: "power2.out",
+          duration: 0.5,
+        });
       }
     },
     [monitorIndex],
