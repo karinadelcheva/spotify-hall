@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { FaExternalLinkAlt, FaRegWindowClose } from "react-icons/fa";
 import { BsPlusCircle } from "react-icons/bs";
 import PropTypes from "prop-types";
+import Image from "next/image";
 
 const AddSongToPublicPlaylist = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
@@ -121,11 +122,16 @@ const AddSongToPublicPlaylist = ({ isOpen, onClose }) => {
               href="https://open.spotify.com/playlist/30154Fw0zWJObzwdDReyYs?si=b43e87b5963f4194"
             >
               <div className="group mb-2 flex items-start gap-4 md:mb-4">
-                <img
-                  src={playlistData.images[0]?.url}
-                  alt={playlistData.name}
-                  className="h-20 w-20 rounded-md object-cover sm:h-24 sm:w-24"
-                />
+                <div className="h-20 w-20 sm:h-24 sm:w-24">
+                  <Image
+                    src={playlistData.images[0]?.url}
+                    alt={playlistData.name}
+                    layout="responsive" 
+                    width={80} 
+                    height={80} 
+                    className="rounded-md object-cover bg-gray-500"
+                  />
+                </div>
                 <div className="flex h-16 flex-col sm:h-24">
                   <h3 className="text-base font-bold text-white md:text-xl">
                     {playlistData.name}
@@ -164,7 +170,7 @@ const AddSongToPublicPlaylist = ({ isOpen, onClose }) => {
                   <img
                     src={track.track.album.images[2]?.url}
                     alt={track.track.name}
-                    className="mr-2 h-8 w-8 rounded object-cover md:h-12 md:w-12"
+                    className="mr-2 h-8 w-8 rounded bg-gray-500 object-cover md:h-12 md:w-12"
                   />
                   <div className="min-w-0 flex-1">
                     <p className="truncate font-semibold text-white">
@@ -206,7 +212,7 @@ const AddSongToPublicPlaylist = ({ isOpen, onClose }) => {
               <img
                 src={song.album.images[2]?.url}
                 alt={song.name}
-                className="mr-2 h-10 w-10 rounded-sm object-cover md:h-12 md:w-12"
+                className="mr-2 h-10 w-10 rounded-sm bg-gray-500 object-cover md:h-12 md:w-12"
               />
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-white">
