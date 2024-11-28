@@ -6,7 +6,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'image-cdn-ak.spotifycdn.com',
-        pathname: '/**', // This allows all paths under the domain
+        pathname: '/**', 
       },
     ],
   },
