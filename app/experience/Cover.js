@@ -9,7 +9,6 @@ import useStore from "../store";
 import useCurrentSong from "../_hooks/useCurrentSong";
 
 export default function Cover(props) {
-  useCurrentSong();
   const currentImage = useStore((state) => state.currentImageHigh);
   const texture = useTexture(currentImage || "/images/default.jpeg");
 
