@@ -5,7 +5,7 @@ import useStore from "../store";
 const useTopAlbums = () => {
   const { data: topAlbums } = useApiFetch("/api/lastfm", 10000);
   const setImages = useStore((state) => state.setImages);
-  const setSongs = useStore((state) => state.setSongs);
+  const setAlbums = useStore((state) => state.setAlbums);
 
   useEffect(() => {
     if (topAlbums) {
@@ -16,8 +16,8 @@ const useTopAlbums = () => {
       });
       console.log(images);
       setImages(images);
-      const songs = topAlbums.topAlbums.map((song) => song);
-      setSongs(songs);
+      const albums = topAlbums.topAlbums.map((song) => song);
+      setAlbums(albums);
     }
   }, [topAlbums, setImages]);
 };

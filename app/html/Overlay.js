@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import RecentSongsInfo from "./RecentSongsInfo";
+import TopAlbumsInfo from "./TopAlbumsInfo";
 import CurrentSongInfo from "./CurrentSongInfo";
 import Links from "./Links";
 import SearchSong from "../_components/AddSongToQueue";
@@ -17,11 +17,9 @@ const Overlay = () => {
 
   return (
     <div className="text-white">
-      {/* <RecentSongsInfo /> */}
-      {/* <CurrentSongInfo /> */}
-      {/* <Links openModal2={openModal2} openModal={openModal} /> */}
-      {/* <SearchSong isOpen={isModalOpen} onClose={closeModal} /> */}
-      {/* <AddSongToPublicPlaylist isOpen={isModal2Open} onClose={closeModal2} /> */}
+      <TopAlbumsInfo />
+      <CurrentSongInfo />
+      <Links openModal2={openModal2} openModal={openModal} />
     </div>
   );
 };
