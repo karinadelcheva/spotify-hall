@@ -16,6 +16,7 @@ import {
   initialCameraPosition,
   mobileCameraPosition,
 } from "../_constants/cameraConfig";
+import BirthdayBalloons from "./BirthdayBalloons";
 
 const Scene = () => {
   const controlsRef = useRef();
@@ -101,8 +102,9 @@ const Scene = () => {
       <Computers controlsRef={controlsRef} />
       <VinylPlayer />
       <Light />
+      <BirthdayBalloons/>
       <Walls />
-      <OrbitControls enableZoom={false} dampingFactor={0} ref={controlsRef} />
+      <OrbitControls enableZoom={false} dampingFactor={0.1} ref={controlsRef} />
       <VinylBox controlsRef={controlsRef} />
       <Suspense fallback={<ScreensFallback />}>
         <Screens />
