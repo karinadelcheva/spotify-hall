@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
-import useRecentlyPlayed from "../_hooks/useRecentlyPlayed";
 import useStore from "../store";
 import PropTypes from "prop-types";
+import useTopTracks from "../_hooks/useTopTracks";
+import useTopAlbums from "../_hooks/useTopAlbums";
 
 const TextureLoader = ({ url }) => {
   const texture = useTexture(url);
@@ -14,7 +15,7 @@ const TextureLoader = ({ url }) => {
 export default function Screens(props) {
   const { nodes } = useGLTF("./models/screens.glb");
 
-  useRecentlyPlayed();
+  useTopAlbums();
   const images = useStore((state) => state.images);
 
   const imageUrls = [

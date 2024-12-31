@@ -5,6 +5,7 @@ const useStore = create((set) => ({
   currentImageLow: null,
   currentImageHigh: null,
   songs: [],
+  albums: [],
   currentSongData: null,
   monitorIndex: null,
   isVinylSelected: false,
@@ -15,6 +16,7 @@ const useStore = create((set) => ({
   setSongs: (songs) => set({ songs }),
   setCurrentSongData: (song) => set({ currentSongData: song }),
   setMonitorIndex: (index) => set({ monitorIndex: index }),
+  setAlbums: (albums) => set({ albums }),
 }));
 
 export default useStore;
