@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import TopAlbumsInfo from "./TopAlbumsInfo";
 import CurrentSongInfo from "./CurrentSongInfo";
 import Links from "./Links";
-import SearchSong from "../_components/AddSongToQueue";
 import AddSongToPublicPlaylist from "../_components/AddSongToPublicPlaylist";
 
 const Overlay = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
